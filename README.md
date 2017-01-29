@@ -23,8 +23,8 @@ Apple社のMDM証明書のCSRは独自のフォーマット(plist)で生成す�
 以下のPEM形式の証明書ファイルを結合します。
 
 * MDMベンダーの証明書
-* Apple社の証明書
-* Apple社のルート証明書
+* [Apple社のWWDR中間証明書](http://developer.apple.com/certificationauthority/AppleWWDRCA.cer)
+* [Apple社のルート証明書](http://www.apple.com/appleca/AppleIncRootCertificate.cer)
 
 ### 3. 証明書署名要求のバイナリを署名
 
