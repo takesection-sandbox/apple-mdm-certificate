@@ -6,6 +6,10 @@ val commonSettings = Seq(
   organization := "jp.pigumer"
 )
 
+lazy val root = (project in file(".")).
+  settings(commonSettings: _*).
+  aggregate(plist)
+
 lazy val plist = (project in file("./plist")).
   settings(commonSettings: _*).
   settings(
