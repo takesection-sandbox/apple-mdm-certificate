@@ -49,7 +49,7 @@ Apple社のMDM証明書のCSRは独自のフォーマット(plist)で生成す�
 
 ### plistイメージをBase64でエンコード
 
-plistイメージをBase64でエンコードしたイメージをファイルに出力して、Apple Push Certificates Portal(https://idmsa.apple.com/IDMSWebAuth/login?appIdKey=xxx)にアップロードします。
+plistイメージをBase64でエンコードしたイメージをファイルに出力して、[Apple Push Certificates Portal](https://identity.apple.com/pushcert)にアップロードします。
 
 ## Apple社からMDM証明書をダウンロードする
 
