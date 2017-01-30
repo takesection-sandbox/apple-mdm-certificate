@@ -32,4 +32,22 @@ object RSAKeyPairFactory {
       writer.close
     }
   }
+
+  def publicKeyToString(keyPair: KeyPair) = {
+    val writer = new StringWriter
+    try {
+      val pemWriter = new PemWriter(writer)
+      try {
+        val pemObject = new JcaMiscPEMGenerator(keyPair.getPublic)
+        pemWriter.writeObject(pemObject)
+      }
+      finally {
+        pemWriter.close
+      }
+      writer.toString
+    }
+    finally {
+      writer.close
+    }
+  }
 }
