@@ -3,8 +3,6 @@ package jp.pigumer
 import java.io.{FileOutputStream, StringReader}
 import java.math.BigInteger
 import java.time.{Duration, Instant}
-import java.time.chrono.ChronoPeriod
-import java.time.temporal.{ChronoUnit, TemporalAmount}
 import java.util.Date
 
 import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers
@@ -12,11 +10,9 @@ import org.bouncycastle.asn1.x500.X500NameBuilder
 import org.bouncycastle.asn1.x500.style.BCStyle
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier
 import org.bouncycastle.cert.X509v3CertificateBuilder
-import org.bouncycastle.cert.jcajce.{JcaX509CertificateConverter, JcaX509v3CertificateBuilder}
+import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter
 import org.bouncycastle.crypto.util.PrivateKeyFactory
-import org.bouncycastle.operator.ContentSigner
 import org.bouncycastle.operator.bc.BcRSAContentSignerBuilder
-import org.bouncycastle.x509.X509V3CertificateGenerator
 import org.specs2.mutable.Specification
 
 class Pkcs12ConvertorSpec extends Specification {
