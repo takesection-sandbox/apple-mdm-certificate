@@ -2,7 +2,7 @@ import Dependencies._
 
 val commonSettings = Seq(
   version := "0.0.1-SNAPSHOT",
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.12.4",
   organization := "jp.pigumer"
 )
 
