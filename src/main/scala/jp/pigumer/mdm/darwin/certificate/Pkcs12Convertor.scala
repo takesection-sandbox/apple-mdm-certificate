@@ -1,4 +1,4 @@
-package jp.pigumer
+package jp.pigumer.mdm.darwin.certificate
 
 import java.io.{OutputStream, Reader}
 import java.security.cert.X509Certificate
@@ -17,8 +17,7 @@ object Pkcs12Convertor {
 
   def parseCertificate(reader: Reader): X509Certificate = {
     val pemParser = new PEMParser(reader)
-    val certificate = pemParser.readObject()
-    null
+    pemParser.readObject().asInstanceOf[X509Certificate]
   }
 
   def write(os: OutputStream, privateKey: PrivateKey, password: Array[Char], certificate: X509Certificate): Unit = {

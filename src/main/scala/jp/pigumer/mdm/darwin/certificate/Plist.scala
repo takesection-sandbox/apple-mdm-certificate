@@ -1,9 +1,28 @@
-package jp.pigumer
+package jp.pigumer.mdm.darwin.certificate
 
 import java.security.{PrivateKey, Signature}
 import java.util.Base64
 
 import org.bouncycastle.pkcs.PKCS10CertificationRequest
+
+trait PlistFactory {
+
+  def generate(csr: PKCS10CertificationRequest,
+               vendorCertificate: String,
+               appleCertificate: String,
+               appleRootCertificate: String,
+               vendorPrivateKey: PrivateKey) = {
+    val plist = toPlist(csr, vendorCertificate + "\n" + appleCertificate + "\n" + appleRootCertificate, vendorPrivateKey)
+    Base64.getEncoder.encodeToString(plist.getBytes())
+  }
+
+  def toPlist(csr: PKCS10CertificationRequest,
+              chain: String,
+              vendorPrivateKey: PrivateKey) = {
+    val plist = Plist(csr, chain, vendorPrivateKey)
+    plist.toXml
+  }
+}
 
 case class Plist(csr: PKCS10CertificationRequest, chain: String, privateKey: PrivateKey) {
 

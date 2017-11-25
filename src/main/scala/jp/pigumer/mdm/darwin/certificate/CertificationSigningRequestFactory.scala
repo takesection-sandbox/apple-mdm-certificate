@@ -1,4 +1,4 @@
-package jp.pigumer
+package jp.pigumer.mdm.darwin.certificate
 
 import java.io.StringWriter
 import java.security.KeyPair
@@ -12,7 +12,7 @@ import org.bouncycastle.operator.bc.BcRSAContentSignerBuilder
 import org.bouncycastle.pkcs.{PKCS10CertificationRequest, PKCS10CertificationRequestBuilder}
 import org.bouncycastle.util.io.pem.PemWriter
 
-object CertificationSigningRequestFactory {
+trait CertificationSigningRequestFactory {
 
   def generate(subject: X500Name, keyPair: KeyPair): PKCS10CertificationRequest = {
     val publicKeyParam = PublicKeyFactory.createKey(keyPair.getPublic.getEncoded)
@@ -29,7 +29,7 @@ object CertificationSigningRequestFactory {
     builder.build(contentSigner)
   }
 
-  def csrToString(csr: PKCS10CertificationRequest) = {
+  def toPEMString(csr: PKCS10CertificationRequest): String = {
     val writer = new StringWriter
     try {
       val pemWriter = new PemWriter(writer)
